@@ -10,11 +10,21 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var textLabel: UILabel!
+    
+    var text: String = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
     }
-
-
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        update(with: text)
+    }
+    func update(with: String) {
+        guard textLabel != nil else { return }
+        textLabel.text = textLabel.text! + "\n \(with)"
+    }
 }
 
